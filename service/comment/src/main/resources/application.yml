@@ -1,0 +1,15 @@
+server.port: 9001
+spring:
+  application:
+    name: pneum4-board-comment-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/comment
+    username: root
+    password: tjdud
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-vim: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none

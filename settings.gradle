@@ -1,0 +1,13 @@
+rootProject.name = 'board'
+
+include 'common'
+include 'common:data-serializer'
+include 'common:snowflake'
+include 'common:event'
+include 'service'
+include 'service:article'
+include 'service:article-read'
+include 'service:comment'
+include 'service:hot-article'
+include 'service:like'
+include 'service:view'
