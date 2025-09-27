@@ -9,8 +9,10 @@ import pneum4.board.common.event.EventType;
 import pneum4.board.hotarticle.client.ArticleClient;
 import pneum4.board.hotarticle.repository.HotArticleListRepository;
 import pneum4.board.hotarticle.service.eventhandler.EventHandler;
+import pneum4.board.hotarticle.service.response.HotArticleResponse;
 
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -43,5 +45,13 @@ public class HotArticleService {
                 .filter(eventHandler -> eventHandler.supports(event))
                 .findAny()
                 .orElse(null);
+    }
+
+    public List<HotArticleResponse> readAll(String dateStr) {
+        return hotArticleListRepository.readAll(dateStr).stream()
+                .map(articleClient::read)
+                .filter(Objects::nonNull)
+                .map(HotArticleResponse::from)
+                .toList();
     }
 }
