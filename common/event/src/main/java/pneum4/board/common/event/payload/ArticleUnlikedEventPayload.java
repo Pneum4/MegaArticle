@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleUnlikedEventPayload implements EventPayload {
-    private Long articleLikedId;
+    private Long articleLikeId;
     private Long articleId;
     private Long userId;
     private LocalDateTime createdAt;

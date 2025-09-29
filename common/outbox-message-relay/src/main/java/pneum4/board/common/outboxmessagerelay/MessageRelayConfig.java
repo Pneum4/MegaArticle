@@ -40,7 +40,7 @@ public class MessageRelayConfig {
     }
 
     @Bean
-    public Executor messageRelayPublicEventExecutor() {
+    public Executor messageRelayPublishEventExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(20); // 20개 기본 쓰레드는 항상 유지
         executor.setMaxPoolSize(50); // 최대 쓰레드 개수
