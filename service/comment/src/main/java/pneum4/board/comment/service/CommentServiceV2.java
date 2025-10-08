@@ -38,7 +38,7 @@ public class CommentServiceV2 {
                 CommentV2.create(
                         snowflake.nextId(),
                         request.getContent(),
-                        request.getArticleId(),
+                        request.getArticleId(), // TODO: articleId 검증 필요
                         request.getWriterId(),
                         parentCommentPath.createChildCommentPath(
                                 commentRepository.findDescendantsTopPath(request.getArticleId(), parentCommentPath.getPath())

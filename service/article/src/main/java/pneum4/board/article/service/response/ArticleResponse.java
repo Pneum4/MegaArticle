@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 public class ArticleResponse {
-    private Long articleId;
+    private Long articleId; // Long타입의 경우 큰값이 들어오면 유실가능 (string으로 응답하는게 안전)
     private String title;
     private String content;
     private Long boardId;

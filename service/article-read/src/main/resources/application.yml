@@ -1,1 +1,25 @@
 server.port: 9005
+spring:
+  application:
+    name: pneum4-board-article-read-service
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+#      컨슈머 그룹 지정
+      group-id: pneum4-board-article-read-service
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: false
+endpoints:
+  pneum4-board-article-service:
+    url: http://127.0.0.1:9000
+  pneum4-board-commnet-service:
+    url: http://127.0.0.1:9001
+  pneum4-board-like-service:
+    url: http://127.0.0.1:9002
+  pneum4-board-view-service:
+    url: http://127.0.0.1:9003
