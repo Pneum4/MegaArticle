@@ -16,3 +16,8 @@ spring:
 endpoints:
   pneum4-board-article-service:
     url: http://127.0.0.1:9000
+springdoc:
+  swagger-ui:
+    path: /api
+  api-docs:
+    path: /hot-article

@@ -1,0 +1,64 @@
+server:
+  port: 9090
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: article-docs
+          uri: http://localhost:9000
+          predicates:
+            - Path=/article/**
+          filters:
+            - RewritePath=/article/(?<segment>.*), /${segment}
+
+        - id: comment-docs
+          uri: http://localhost:9001
+          predicates:
+            - Path=/comment/**
+          filters:
+            - RewritePath=/comment/(?<segment>.*), /${segment}
+
+        - id: like-docs
+          uri: http://localhost:9002
+          predicates:
+            - Path=/like/**
+          filters:
+            - RewritePath=/like/(?<segment>.*), /${segment}
+
+        - id: view-docs
+          uri: http://localhost:9003
+          predicates:
+            - Path=/view/**
+          filters:
+            - RewritePath=/view/(?<segment>.*), /${segment}
+
+        - id: hot-article-docs
+          uri: http://localhost:9004
+          predicates:
+            - Path=/hot-article/**
+          filters:
+            - RewritePath=/hot-article/(?<segment>.*), /${segment}
+
+        - id: article-read-docs
+          uri: http://localhost:9005
+          predicates:
+            - Path=/article-read/**
+          filters:
+            - RewritePath=/article-read/(?<segment>.*), /${segment}
+springdoc:
+  swagger-ui:
+    path: /api          # Swagger 통합 화면 주소
+    urls:
+      - name: article
+        url: /article
+      - name: comment
+        url: /comment
+      - name: like
+        url: /like
+      - name: view
+        url: /view
+      - name: hot-article
+        url: /hot-article
+      - name: article-read
+        url: /article-read
